@@ -7,6 +7,8 @@ import SecondPage from '@/components/SecondPage'
 import Rest from '@/components/Rest'
 import FirstPart from '@/components/HomeComponents/FirstPart'
 import SecondPart from '@/components/HomeComponents/SecondPart'
+import ReFirstPart from '@/components/HomeComponents/Re/ReFirstPart'
+import ReSecondPart from '@/components/HomeComponents/Re/ReSecondPart'
 
 Vue.use(Router)
 
@@ -30,7 +32,19 @@ export default new Router({
         {
           path: 'SecondPart',
           name: 'SecondPart',
-          component: SecondPart
+          component: SecondPart,
+          children: [
+            {
+              path: '/',
+              name: 'ReFirstPart',
+              component: ReFirstPart
+            },
+            {
+              path: '/ReSecondPart',
+              name: 'ReSecondPart',
+              component: ReSecondPart
+            }
+          ]
         }
       ]
     },
